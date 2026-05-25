@@ -496,6 +496,11 @@ h3 {
   position: relative;
 }
 
+.stroke-section > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
 .scroll-stroke {
   height: auto;
   opacity: 1;
@@ -506,6 +511,20 @@ h3 {
   transform: rotate(-7deg);
   width: min(1080px, 86vw);
   z-index: 0;
+}
+
+.stroke-section[data-stroke-variant="1"] .scroll-stroke {
+  right: -470px;
+  top: -470px;
+  transform: rotate(-5deg);
+  width: min(1120px, 88vw);
+}
+
+.stroke-section[data-stroke-variant="2"] .scroll-stroke {
+  right: -420px;
+  top: -300px;
+  transform: rotate(-11deg);
+  width: min(1160px, 92vw);
 }
 
 .scroll-stroke path {
@@ -1028,6 +1047,20 @@ details p {
     top: -40px;
     transform: rotate(-9deg);
     width: 1240px;
+  }
+
+  .stroke-section[data-stroke-variant="1"] .scroll-stroke {
+    right: -740px;
+    top: -70px;
+    transform: rotate(-7deg);
+    width: 1260px;
+  }
+
+  .stroke-section[data-stroke-variant="2"] .scroll-stroke {
+    right: -780px;
+    top: -80px;
+    transform: rotate(-12deg);
+    width: 1280px;
   }
 
   .scroll-stroke-track {

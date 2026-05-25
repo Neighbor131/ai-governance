@@ -28,6 +28,29 @@ function setHeaderTone() {
 setHeaderTone();
 window.addEventListener("scroll", setHeaderTone, { passive: true });
 
+const strokeSource = document.querySelector(".scroll-stroke");
+const contentSections = [...document.querySelectorAll("main > .section")];
+
+if (strokeSource) {
+  contentSections.forEach((section, index) => {
+    const shouldShowStroke = index % 2 === 1;
+
+    if (!shouldShowStroke) {
+      return;
+    }
+
+    section.classList.add("stroke-section");
+    section.dataset.strokeVariant = String(Math.floor(index / 2) % 3);
+
+    const hasStroke = [...section.children].some((child) => child.classList.contains("scroll-stroke"));
+
+    if (!hasStroke) {
+      const stroke = strokeSource.cloneNode(true);
+      section.prepend(stroke);
+    }
+  });
+}
+
 const scrollPaths = [...document.querySelectorAll("[data-scroll-path]")];
 
 function clamp(value, min, max) {
@@ -48,9 +71,9 @@ function updateScrollPaths() {
     const section = path.closest(".stroke-section");
     const length = Number(path.dataset.pathLength || path.getTotalLength());
     const rect = section.getBoundingClientRect();
-    const progress = clamp((window.innerHeight - rect.top) / (rect.height + window.innerHeight * 0.55), 0, 1);
-    const eased = 1 - Math.pow(1 - progress, 2.6);
-    path.style.strokeDashoffset = String(length * (1 - eased));
+    const progress = clamp((window.innerHeight - rect.top) / (rect.height + window.innerHeight), 0, 1);
+    const pathLength = 0.5 + progress * 0.5;
+    path.style.strokeDashoffset = String(length * (1 - pathLength));
   });
 }
 
