@@ -10,3 +10,4 @@ make-assets.py
 assets/*
 !assets/hero-gradient.jpeg
 !assets/footer-gradient.jpeg
+!assets/os-gradient.jpeg

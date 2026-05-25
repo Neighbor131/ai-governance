@@ -691,8 +691,8 @@ h3 {
 }
 
 .map-core-image {
-  background: linear-gradient(120deg, rgba(27, 6, 36, 0.72), rgba(174, 236, 29, 0.18)),
-    url("assets/hero-gradient.jpeg");
+  background: linear-gradient(120deg, rgba(27, 6, 36, 0.64), rgba(27, 6, 36, 0.08)),
+    url("assets/os-gradient.jpeg");
   background-position: center;
   background-size: cover;
   inset: 0;
