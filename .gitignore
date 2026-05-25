@@ -1,0 +1,12 @@
+# Local audit and verification artifacts
+.DS_Store
+*.png
+duna.html
+duna-style-summary.json
+audit-duna.mjs
+make-assets.py
+
+# Generated/reference images not used by the deployed site
+assets/*
+!assets/hero-gradient.jpeg
+!assets/footer-gradient.jpeg
